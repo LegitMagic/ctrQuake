@@ -83,7 +83,7 @@ extern int m_state;
 extern qboolean m_return_onerror;
 extern char m_return_reason[32];
 
-#ifdef _3DS
+#ifdef __3DS__
 int ctrport_fix = 5001;
 #endif
 
@@ -1056,7 +1056,7 @@ static qsocket_t *_Datagram_CheckNewConnections (void)
 	}
 
 	// allocate a network socket
-	#ifdef _3DS
+	#ifdef __3DS__
 	newsock = dfunc.OpenSocket (ctrport_fix);
 	ctrport_fix++;
 	#else
@@ -1235,7 +1235,7 @@ static qsocket_t *_Datagram_Connect (char *host)
 	if (dfunc.GetAddrFromName(host, &sendaddr) == -1)
 		return NULL;
 
-	#ifdef _3DS
+	#ifdef __3DS__
 	newsock = dfunc.OpenSocket (ctrport_fix);
 	ctrport_fix++;
 	#else

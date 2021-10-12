@@ -1089,7 +1089,7 @@ void M_AdjustSliders (int dir)
 			sensitivity.value = 11;
 		Cvar_SetValue ("sensitivity", sensitivity.value);
 		break;
-#ifdef _3DS
+#ifdef __3DS__
 	case 6:	// mouse speed
 		csensitivity.value += dir * 0.5;
 		if (csensitivity.value < 1)
@@ -1220,7 +1220,7 @@ void M_Options_Draw (void)
 	r = (1.0 - v_gamma.value) / 0.5;
 	M_DrawSlider (220, 64, r);
 
-	#ifdef _3DS
+	#ifdef __3DS__
 	M_Print (16, 72, "     Touch Sensitivity");
 	#else
 	M_Print (16, 72, "           Mouse Speed");
@@ -1228,7 +1228,7 @@ void M_Options_Draw (void)
 	r = (sensitivity.value - 1)/10;
 	M_DrawSlider (220, 72, r);
 
-	#ifdef _3DS
+	#ifdef __3DS__
 
 	M_Print (16, 80, "   C-Stick Sensitivity");
 	r = (csensitivity.value - 1)/10;
@@ -1253,7 +1253,7 @@ void M_Options_Draw (void)
 	M_Print (16, 96,  "            Always Run");
 	M_DrawCheckbox (220, 96, cl_forwardspeed.value > 200);
 
-	#ifdef _3DS
+	#ifdef __3DS__
 	M_Print (16, 104, "       Invert C-Button");
 	#else
 	M_Print (16, 104, "          Invert Mouse");
@@ -1263,7 +1263,7 @@ void M_Options_Draw (void)
 	M_Print (16, 112, "            Lookspring");
 	M_DrawCheckbox (220, 112, lookspring.value);
 
-	#ifdef _3DS
+	#ifdef __3DS__
 	M_Print (16, 120, "      CirclePad Strafe");
 	#else
 	M_Print (16, 120, "            Lookstrafe");
@@ -1314,7 +1314,7 @@ void M_Options_Key (int k)
 		case 2:
 			Cbuf_AddText ("exec default.cfg\n");
 
-			#ifdef _3DS
+			#ifdef __3DS__
 			Sys_DefaultConfig();
 			#endif
 
@@ -1649,7 +1649,7 @@ char *quitMessage [] =
   "        to quit?        ",
   "                        ",
 
-  #ifdef _3DS
+  #ifdef __3DS__
 
   " Man, I oughta smack you",
   "   for trying to quit!  ",
@@ -1719,7 +1719,7 @@ void M_Quit_Key (int key)
 {
 	switch (key)
 	{
-	#ifdef _3DS
+	#ifdef __3DS__
 	case K_AUX2:
 	#endif
 	case K_ESCAPE:
@@ -1737,7 +1737,7 @@ void M_Quit_Key (int key)
 		}
 		break;
 
-	#ifdef _3DS
+	#ifdef __3DS__
 	case K_AUX1:
 	#endif
 	case 'Y':

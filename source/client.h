@@ -268,7 +268,7 @@ extern	cvar_t	m_yaw;
 extern	cvar_t	m_forward;
 extern	cvar_t	m_side;
 
-#ifdef _3DS
+#ifdef __3DS__
 extern	cvar_t	csensitivity;
 extern	cvar_t	circlepadsensitivity;
 #endif
